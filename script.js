@@ -26,9 +26,14 @@ function isValidEmail(email) {
 
 // check required fields 
 function checkRequired(inputArr) {
-    
+    inputArr.forEach(function (input) {
+        if (input.value.trim() === '') {
+            showError(input, `${getFieldName(input)} is required`);
+        } else {
+            showSuccess(input);
+        }
+    });
 }
-
 // Event Listeners 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
