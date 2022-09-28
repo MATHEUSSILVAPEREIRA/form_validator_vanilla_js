@@ -5,18 +5,25 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 //show input error message 
-function showerror(input, message) {
+function showError(input,message) {
     const formControl = input.parentElement; 
     formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerText = message;
 }
 
+// show success outline 
+function showSuccess(input) {
+    const formControl = input.parentElement; 
+    formControl.className = 'form-control success';
+}
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+
     if (username.value === '') {
-        showError('Username is required');
+       showError(username, 'Username is required');
+    } else {
+        showSuccess(username);
     }
 });
-
-function showError(x)
